@@ -84,7 +84,7 @@ legend {
 */
 
 .inner {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -349,6 +349,29 @@ h2 {
     section04 : 다른 프로젝트
    --------------------------------------------- */
 
+
+.others ul {
+    display: flex;
+}
+
+.others ul li {
+    width: 200px;
+    height: 140px;
+    margin-right: 20px;
+}
+
+.others ul li > div {
+    width: 200px;
+    height: 140px;
+    box-shadow: var(--box-shadow-200);
+    border: #fff 1px solid;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.others img {
+    object-fit: cover;
+}
    
 /* ---------------------------------------------
     section05 : 링크

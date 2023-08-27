@@ -1,4 +1,21 @@
 //---------------------------------------------
+// 페이지 색깔 변경
+//---------------------------------------------
+
+const colors = ["black", "skyblue", "pink", "green", "yellow"];
+
+function updateDotColors() {
+    const paginationItems = document.querySelectorAll("#pagination li");
+    paginationItems.forEach((item, index) => {
+        if (index === page) {
+            item.querySelector('i').style.color = colors[index];
+        } else {
+            item.querySelector('i').style.color = "#ddd";
+        }
+    });
+}
+
+//---------------------------------------------
 // PC형 페이징 스크롤
 //---------------------------------------------
 
@@ -49,4 +66,7 @@ window.addEventListener("wheel", function(e) {
 
     let posTop = page * window.innerHeight; // 위치 계산
     scrollToPosition(posTop);
+
+    // 페이지가 변경된 후 동그라미의 색깔 업데이트
+    updateDotColors();
 }, { passive: false });
