@@ -1,1 +1,411 @@
 @charset "utf-8";
+
+/* ==========================================================================
+    List
+
+    1. Common
+    2. Interactive
+    3. root 
+    4. Header
+    5. Main
+    6. Footer
+   ==========================================================================
+*/
+
+/* ==========================================================================
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Noto Sans KR', sans-serif;
+   ==========================================================================
+*/
+
+/* ==========================================================================
+    1. Common 
+   ==========================================================================
+*/
+
+html {
+    font-size: 62.5%; /* 10px = 62.5% */
+    /* font-family: 'SUIT-Regular'; */
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fff;
+}
+
+/* 여백초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 테이블선 중첩 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* 목록스타일 초기화 */
+ol, ul {
+    list-style: none;
+}
+
+/* 하이퍼링크 초기화*/
+a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+
+/* 이미지 초기화 */
+img {
+    display: block;
+    width: 100%;
+}
+
+/* 글자기울임 초기화*/
+address, em, i {
+    font-style: normal;
+}
+
+/* 폼그룹 테두리 없애기 */
+fieldset, input {
+    border: 0;
+    vertical-align: middle;
+}
+
+/* 폼그룹명 숨기기 */
+legend {
+    display: none;
+}
+
+
+/* ==========================================================================
+    2. Interactive
+   ==========================================================================
+*/
+
+.inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width:700px) {
+    .inner {
+        max-width: calc(100% - 40px);
+    }
+}
+
+
+/* ==========================================================================
+    3. root 
+   ==========================================================================
+*/
+
+/* ----- 색상 ----- */
+
+:root {
+    /* 공통 */
+    --color-black: #000;
+    --color-white: #fff;
+    --color-blue: #0071C3;
+    --color-green: #007F92;
+    --color-gray100: #f9f9f9;
+    --color-gray200: #f5f5f5;
+    --color-gray300: #eeeeee;
+    --color-gray400: #D6DBDF;
+    --color-black200: #9ba4aa;
+    --color-black300: #72777a;
+    --color-black400: #5F686F;
+    --color-black600: #3A4045;
+    --color-black900: #273030;
+    /* 투명도 */
+    --color-blue-op05: rgba(0, 113, 195, 0.05);
+    --color-blue-op20: rgba(0, 113, 195, 0.2);
+    --color-blue-op40: rgba(0, 113, 195, 0.4);
+    --color-blue-op60: rgba(0, 113, 195, 0.6);
+    --color-black-op25: rgba(0, 0, 0, 0.25);
+    --color-white-op80: rgba(255, 255, 255, 0.8);
+    --color-white-op70: rgba(255, 255, 255, 0.7);
+    --color-white-op60: rgba(255, 255, 255, 0.6);
+    --color-white-op20: rgba(255, 255, 255, 0.2);
+    /* 포인트 색상 */
+    --color-point: var(--color-blue);
+    /* 배경 색상 */
+    --color-background: var(--color-gray100);
+    --color-background-button-op: var(--color-blue-op40);
+    --color-background-button: var(--color-point);
+    --color-background-box: var(--color-gray100);
+    --color-background-box-light: var(--color-white);
+    --color-background-main: var(--color-black-op25);
+    /* 폰트 색상 */
+    --color-main: var(--color-white);
+    --color-title: var(--color-point);
+    --color-subtitle: var(--color-black);
+    --color-text: var(--color-black300);
+    --color-content-text: var(--color-black600);
+    --color-button: var(--color-white);
+    --color-box: var(--color-white);
+    /* 아이콘 색상 */
+    --color-icon: var(--color-green);
+    /* 테두리 색상 */
+    --color-solid-box: var(--color-gray300);
+    --color-solid-main: var(--color-white-op60);
+}
+
+
+/* ----- 폰트사이즈 ----- */
+
+:root {
+    --font-tiny: 1rem;
+    --font-small: 1.2rem;
+    --font-semi-small: 1.4rem;
+    --font-medium: 1.6rem;
+    --font-semi-large: 1.8rem;
+    --font-large: 2rem;
+    --font-extra: 2.2rem;
+    --font-title: var(--font-medium);
+    --font-subtitle: var(--font-extra);
+    --font-text: var(--font-semi-small);
+    --font-icon: var(--font-tiny);
+    --font-button: var(--font-medium);
+}
+
+
+/* ----- 글씨체 ----- */
+
+:root {
+    --fam-title: 'Kaushan Script', cursive;
+    --fam-logo: 'Kaisei Opti', serif;
+    --fam-number: 'Kumar One', cursive;
+}
+
+
+/* ----- 테두리 ----- */
+
+:root {
+    --bord-solid: var(--color-white) 1px solid;
+    --bord-op-solid: var(--color-solid-main) 1px solid;
+    --bord-op-point: var(--color-op-point) 1px solid;
+    --bord-solid-box: var(--color-solid-box) 1px solid;
+}
+
+
+/* ----- 테두리 굴곡 ----- */
+
+:root {
+    --bord-radius-all: 10px;
+    --bord-radius-half: 10px 10px 0 0;
+    --bord-radius-circle: 100%;
+}
+
+
+/* ----- 그림자 ----- */
+
+:root {
+    --box-shadow-100: 0 1px 4px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.16);
+    --box-shadow-200: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+    --box-shadow-300: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+    --box-shadow-400: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+/* ==========================================================================
+    4. Header 
+   ==========================================================================
+*/
+
+/* ---------------------------------------------
+    nav
+   --------------------------------------------- */
+
+header {
+    position: fixed;
+    top: 50%; 
+    left: 50px;
+    transform: translateY(-50%);
+    font-size: var(--font-tiny);
+}
+
+nav ul li {
+    margin: 30px 0;
+}
+
+
+/* ==========================================================================
+    5. Main
+   ==========================================================================
+*/
+
+/* ---------------------------------------------
+    공통부문
+   --------------------------------------------- */
+
+#wrap {
+    overflow: hidden;
+    line-height: 1.4;
+    font-size: 1.4rem;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-family: var(--fam-title);
+    font-size: 3rem;
+}
+
+    .white-space {
+        white-space: pre-line;
+    }
+
+
+/* ---------------------------------------------
+    section01 : title 타이틀
+   --------------------------------------------- */
+
+#section01 {
+    font-family: var(--fam-title);
+}
+
+.title {
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 10rem;
+    text-shadow:
+    -2px -2px 0 #ffcdd7,  
+    2px -2px 0 #eee,
+    -2px 2px 0 #eee,
+    2px 2px 0 #b3e4ff;
+}
+
+.title p {
+    font-size: 3rem;
+    padding: 10px 0 40px;
+    text-shadow: var(--box-shadow-100);
+}
+
+/* ---------------------------------------------
+    section02 : project 첫번째 프로젝트
+    section03 : project 두번째 프로젝트
+   --------------------------------------------- */
+
+.project {
+    display: flex;
+    width: 100%;
+    height: 50%;
+}
+
+.project_spec {
+    width: 30%;
+    /* border: #ddd 1px solid; */
+    padding: 15px;
+    margin-right: 20px;
+}
+
+.project_show {
+    width: 70%;
+    overflow: hidden;
+    box-shadow: var(--box-shadow-200);
+    border: #fff 1px solid;
+}
+
+.project_show img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.project_spec {
+    box-shadow: var(--box-shadow-200);
+    border: #fff 1px solid;
+}
+
+.project_spec .project_tool {
+    color: #3e6d8e;
+    font-size: var(--font-tiny);
+    margin-top: 10px;
+}
+
+.project_spec .project_name {
+    font-size: 2.2rem;
+    padding-bottom: 5px;
+}
+
+#section02 .project_spec {
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+
+}
+
+#section03 .project_spec {
+    background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+}
+
+/* ---------------------------------------------
+    section04 : 다른 프로젝트
+   --------------------------------------------- */
+
+   
+/* ---------------------------------------------
+    section05 : 링크
+   --------------------------------------------- */
+
+.log {
+    display: flex;
+}
+
+.log-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 1000%;
+    border-bottom: #adcea8 1px solid;
+    border-top: #bdc8ee 1px solid;
+    border-left: #fedba5 1px solid;
+    border-right: #fcc9d2 1px solid;
+    height: auto;
+    margin: 80px;
+    box-shadow: var(--box-shadow-300);
+    background-color: #fff9f6;
+}
+
+.log-img a {
+    width: 140px;
+    height: 140px;
+    border-radius: 1000%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github img {
+    width: 80px;
+    height: auto;
+}
+
+.notion img {
+    width: 70px;
+    height: auto;
+}
+
+
+/* ==========================================================================
+    5. Footer
+   ==========================================================================
+*/
+
+footer {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+}
+
+.scroll {
+    color: var(--color-black200);
+}
+
+/* ==================================== 끝 ================================== */
