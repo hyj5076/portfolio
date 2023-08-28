@@ -383,7 +383,7 @@ h3 {
     width: 100%;
     text-align: center;
     padding: 20px 0;
-    background-color: var(--color-background-main);
+    /* background-color: var(--color-background-main); */
     transition: transform 0.4s ease-out;
 }
 
@@ -392,6 +392,7 @@ h3 {
         border: var(--bord-op-solid);
         border-radius: var(--bord-radius-all);
         padding: 60px 0;
+        background-color: var(--color-background-main);
     }
 
 #section01 h1 {
@@ -430,7 +431,7 @@ h3 {
     width: 60%;
     padding: 15px 0;
     background-color: var(--color-background-button-op);
-    border: var(--bord-op-solid);
+    border: var(--bord-solid);
     color: var(--color-white);
     font-size: var(--font-button);
     border-radius: var(--bord-radius-all);
