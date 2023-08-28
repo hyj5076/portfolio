@@ -1,0 +1,460 @@
+@charset "utf-8";
+
+/* 기본폰트 */
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 타이틀 */
+
+/* ==========================================================================
+    List
+
+    1. Common
+    2. Interactive
+    3. root 
+    4. Header
+    5. Sub
+    6. Footer
+   ==========================================================================
+*/
+
+
+/* ==========================================================================
+    1.Common 
+   ==========================================================================
+*/
+
+html {
+    font-size: 62.5%; /* 10px = 62.5% */
+    /* font-family: 'SUIT-Regular'; */
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #fff;
+}
+
+/* 여백초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 테이블선 중첩 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* 목록스타일 초기화 */
+ol, ul {
+    list-style: none;
+}
+
+/* 하이퍼링크 초기화*/
+a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+
+/* 이미지 초기화 */
+img {
+    display: block;
+    width: 100%;
+}
+
+/* 글자기울임 초기화*/
+address, em, i {
+    font-style: normal;
+}
+
+/* 폼그룹 테두리 없애기 */
+fieldset, input {
+    border: 0;
+    vertical-align: middle;
+}
+
+/* 폼그룹명 숨기기 */
+legend {
+    display: none;
+}
+
+
+
+/* ==========================================================================
+    2.Interactive
+   ==========================================================================
+*/
+
+.inner {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+    @media (max-width:500px) {
+        .inner {
+            max-width: calc(100% - 40px);
+        }
+    }
+
+
+/* ==========================================================================
+    3.root 
+   ==========================================================================
+*/
+
+/* ----- 색상 ----- */
+
+:root {    
+    /* 공통 */
+    --color-black: #000;
+    --color-white: #fff;
+
+    --color-blue: #0071C3;
+    --color-blue100: #E9F4FF;
+    --color-green: #007F92;
+    
+    --color-gray100: #f9f9f9;
+    --color-gray200: #f5f5f5;
+    --color-gray300: #eeeeee;
+    --color-gray400: #D6DBDF;
+
+    --color-black200: #9ba4aa;
+    --color-black300: #72777a;
+    --color-black400: #5F686F;
+    --color-black600: #3A4045;
+    --color-black900: #273030;
+
+    /* 투명도 */
+    --color-blue-op05: rgba(0, 113, 195, 0.05);
+    --color-blue-op20: rgba(0, 113, 195, 0.2);
+    --color-blue-op40: rgba(0, 113, 195, 0.4);
+    --color-blue-op60: rgba(0, 113, 195, 0.6);
+
+    --color-black-op25: rgba(0, 0, 0, 0.25);
+
+    --color-white-op80: rgba(255, 255, 255, 0.8);
+    --color-white-op70: rgba(255, 255, 255, 0.7);
+    --color-white-op60: rgba(255, 255, 255, 0.6);
+    --color-white-op20: rgba(255, 255, 255, 0.2);
+
+    /* 포인트 색상 */
+    --color-point: var(--color-blue);
+    --color-op-point: var(--color-blue100);
+
+    /* 배경 색상 */
+    --color-background: var(--color-gray100);
+    --color-background-button-op: var(--color-blue-op40);
+    --color-background-button: var(--color-point);
+    --color-background-box: var(--color-gray100);
+    --color-background-box-light: var(--color-white);
+    --color-background-main: var(--color-black-op25);
+
+    /* 폰트 색상 */
+    --color-main: var(--color-white);
+
+    --color-title: var(--color-point);
+    --color-subtitle: var(--color-black);
+    --color-text: var(--color-black300);
+    --color-content-text: var(--color-black600);
+
+    --color-button: var(--color-white);
+    --color-box: var(--color-white);
+
+    /* 아이콘 색상 */
+    --color-icon: var(--color-green);
+
+    /* 테두리 색상 */
+    --color-solid-box: var(--color-gray300);
+    --color-solid-main: var(--color-white-op60);
+}
+
+
+/* ----- 폰트사이즈 ----- */
+
+:root {
+    --font-tiny: 1rem;
+    --font-small: 1.2rem;
+    --font-semi-small: 1.4rem;
+    --font-medium: 1.6rem;
+    --font-semi-large: 1.8rem;
+    --font-large: 2rem;
+    --font-extra: 2.2rem;
+
+    --font-title: var(--font-medium);
+    --font-subtitle: var(--font-extra);
+    --font-text: var(--font-semi-small);
+    --font-icon: var(--font-tiny);
+    --font-button: var(--font-medium);
+}
+
+/* ----- 글씨체 ----- */
+
+:root {
+    --fam-title: 'KOTRALEAP';
+    --fam-logo: 'Kaisei Opti', serif;
+    --fam-number: 'Kumar One', cursive;
+}
+
+
+/* ----- 테두리 ----- */
+
+:root {
+    --bord-solid: var(--color-white) 1px solid;
+    --bord-op-solid: var(--color-solid-main) 1px solid;
+    --bord-op-point: var(--color-op-point) 1px solid;   
+    --bord-solid-box: var(--color-solid-box) 1px solid;
+}
+
+
+/* ----- 테두리 굴곡 ----- */
+
+:root {
+    --bord-radius-all: 10px;
+    --bord-radius-half: 10px 10px 0 0;
+    --bord-radius-circle: 100%;
+}
+
+
+/* ----- 그림자 ----- */
+
+:root {
+    --box-shadow-100: 0 1px 4px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.16);
+    --box-shadow-200: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+    --box-shadow-300: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+    --box-shadow-400: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+
+/* ==========================================================================
+    4. Header 
+   ==========================================================================
+*/
+
+
+/* ==========================================================================
+    5. Sub
+   ==========================================================================
+*/
+
+/* ---------------------------------------------
+    공통부문
+   ---------------------------------------------*/
+
+#wrap {
+    color: var(--color-text);
+    line-height: 1.4;
+    font-size: 1.4rem; 
+}
+
+h2, h3 {
+    color: var(--color-title);
+    font-family: var(--fam-title);
+}
+
+h3 {
+    font-size: var(--font-title);
+    padding: 10px 0;
+}
+
+section {
+    display: flex;
+}
+
+
+
+/* ---------------------------------------------
+    섹션 : 메인페이지
+   ---------------------------------------------*/
+
+.logo a {
+    font-weight: 900;
+    font-family: var(--fam-logo);
+    color: var(--color-point);
+    font-size: var(--font-title);
+    margin-bottom: 20px;
+}
+
+section .style0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .style1 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+section .title {
+    text-align: center;
+    padding: 20px 0;
+}
+
+section h1 {
+    font-size: var(--font-large);
+    font-weight: 500;
+}
+
+section .exhibition {
+    font-size: 2.6rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.title p {
+    font-size: var(--font-subtitle);
+    color: var(--color-subtitle);
+    font-weight: 600;
+}
+
+.input_text {
+    margin: 20px 0;
+}
+
+input[type="text"] {
+    touch-action: manipulation;
+    width: 80%;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--color-gray200);
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"] {
+    scale: 1.1;
+    margin: 0 5px;
+}
+
+    .active-popup {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+      }
+      
+    .active-popup.open {
+        max-height: 500px; /* 원하는 높이로 설정 */
+        opacity: 1;
+    }
+
+  
+.agree {
+    padding: 0 20px;
+}
+
+.agree p {
+    font-size: var(--font-small);
+    color: var(--color-black600);
+    font-weight: 300;
+    text-align: left;
+    padding-bottom: 5px;
+}
+
+.agree h3 {
+    color: var(--color-black600);
+}
+
+.agree h3 span {
+    color: var(--color-point);
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: var(--font-small);
+    text-decoration: underline;
+}
+
+.agree i {
+    transform: rotate(0);
+    padding: 5px;
+    cursor: pointer;
+    color: var(--color-point);
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.btn a {
+    display: inline-block;
+    width: 80%;
+    padding: 15px 0;
+    background-color: var(--color-op-point);
+    border: var(--bord-op-solid);
+    color: var(--color-point);
+    font-weight: 600;
+    font-size: var(--font-button);
+    border-radius: var(--bord-radius-all);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.btn a:first-child {
+    background-color: var(--color-point);
+    color: var(--color-white);
+}
+
+    @media (max-width:420px) {
+        section {
+            padding: 40px 0;
+        }
+
+        section .style0 {
+            align-items: baseline;
+        }
+
+        section p {
+            padding-bottom: 15px;
+        }
+
+        section h1 {
+            padding-bottom: 5px;
+        }
+
+        .title p {
+            font-size: var(--font-medium);
+        }
+
+        input[type="text"] {
+            width: 100%;
+        }
+
+        .btn a {
+            width: 100%;
+        }
+
+        .btn {
+            margin-bottom: 20px;
+        }
+
+        .agree h3 {
+            font-size: var(--font-semi-small);
+        }
+
+        .agree p {
+            font-size: var(--font-tiny);
+        }
+    }
+
+
+/* ---------------------------------------------
+    fail
+   ---------------------------------------------*/
+
+   .result {
+        padding: 20px 0;
+   }
+
+   .result p {
+        margin: 10px 0;
+   }
+
+/* ==========================================================================
+    6.Footer
+   ==========================================================================
+*/

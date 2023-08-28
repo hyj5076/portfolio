@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사전예약 페이지</title>
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@400;500;700&family=Kumar+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/sub.css">
+
+    <!-- js -->
+    <script src="../js/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="main">
+            <section id="section00">
+                <div class="style0 inner">
+                    <div class="title">
+                        <p class="logo"><a href="../index.html">EDEN C&S</a></p>
+                        <h1>힐스테이트 푸르지오 수원</h1>
+                        <p class="exhibition">입주전시회 사전예약</p>
+
+                        <div class="input_text">
+                            <input id="dongInput" type="text" placeholder="입주예정 동" maxlength="4">
+                            <input id="hoInput" type="text" placeholder="입주예정 호" maxlength="4">
+                            <input id="nameInput" type="text" placeholder="성명" maxlength="10">
+                            <input id="telInput" type="text" placeholder="연락처" maxlength="13">
+                        </div>
+
+                        <div class="agree active-rotate">
+                            <h3>개인정보 활용 수집 이용 동의<i class="bi bi-caret-down-fill"></i></h3>
+                            <div class="active-popup">
+                                <p>1. 개인정보 활용, 이용의 목적 : 소유주 명부 등재, 채팅방 및 네이버 카페, 밴드 등 초대, 홍보, 안내, 설문. 경품추첨 당첨 시 입주민 여부 확인, 비상 시 연락 등 입주 박람회 관련 업무 일체</p>
+                                <p>2. 개인정보 목록 : 이름, 연락처(휴대전화번호), 주소, 소유 동 호수</p>
+                                <p>3. 개인정보의 처리 및 보유기간 : 3년</p>
+                                <p>4. 개인정보 제공을 거부할 수 있다는 사실 및 거부 시의 불이익 고지 : 상기 정보의 정보를 거부할 수 있으나, 입주박람회 경품 추첨에 참여할 수 없고, 이든씨엔에스의 홍보, 정보, 진행단계, 안내를 받을 수 없음.</p>
+                                <p><input id="agreementCheckbox" type="checkbox"> 위 사항을 모두 읽었으며, 개인정보 활용에 동의함</p>
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <a href="../sub/success.html" onclick="return validateForm()">신청하기</a>
+                            <a href="#" onclick="resetForm()">초기화</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+    //-----------------------------------------------
+    // 창 높이 일정하게
+    //-----------------------------------------------
+
+    function setSectionHeight() {
+        let windowHeight = window.innerHeight;
+        let section = document.querySelector('#section00');
+        section.style.height = windowHeight + 'px';
+    }
+
+    // 창 크기가 변경될 때 섹션 높이 업데이트
+    window.addEventListener('resize', function() {
+        setSectionHeight();
+    });
+
+    // 초기 로드 시 섹션 높이 설정
+    setSectionHeight();
+
+
+    //-----------------------------------------------
+    // 인풋 초기화 버튼
+    //-----------------------------------------------
+
+    function resetForm() {
+        document.getElementById("dongInput").value = "";
+        document.getElementById("hoInput").value = "";
+        document.getElementById("nameInput").value = "";
+        document.getElementById("telInput").value = "";
+    }
+
+    //---------------------------------------------
+    // 개인정보 동의서 아이콘 클릭 이벤트 핸들러
+    //---------------------------------------------
+
+    const agreeIcon = document.querySelector('.agree i');
+    const activePopup = document.querySelector('.active-popup');
+    const agreementCheckbox = document.getElementById('agreementCheckbox');
+
+    agreeIcon.addEventListener('click', function() {
+        if (activePopup.style.maxHeight) {
+            activePopup.style.maxHeight = null;
+            activePopup.style.opacity = '0';
+            agreeIcon.classList.remove('bi-caret-up-fill');
+            agreeIcon.classList.add('bi-caret-down-fill');
+        } else {
+            activePopup.style.maxHeight = activePopup.scrollHeight + 'px';
+            activePopup.style.opacity = '1';
+            agreeIcon.classList.remove('bi-caret-down-fill');
+            agreeIcon.classList.add('bi-caret-up-fill');
+        }
+    });
+
+
+    //-----------------------------------------------
+    // 빈칸 채우기
+    //-----------------------------------------------
+
+    function validateForm() {
+        let dong = document.getElementById("dongInput").value;
+        let ho = document.getElementById("hoInput").value;
+        let name = document.getElementById("nameInput").value;
+        let tel = document.getElementById("telInput").value;
+        let agreement = document.getElementById("agreementCheckbox").checked;
+
+        // 각 input 빈칸 확인
+        var textInputs = document.querySelectorAll('.input_text input[type="text"]');
+
+        for (var i = 0; i < textInputs.length; i++) {
+            var input = textInputs[i];
+            if (input.value === "") {
+                var placeholder = input.getAttribute("placeholder");
+                alert(placeholder + "을(를) 입력해주세요.");
+                input.focus(); // 빈칸으로 포커스 이동
+                return false;
+            }
+        }
+
+        // 개인정보 동의 확인
+        if (!agreement) {
+            alert("개인정보 활용 수집 이용에 동의하여야 사전예약이 가능합니다.");
+
+            // 내용 펼침
+            activePopup.style.maxHeight = activePopup.scrollHeight + 'px';
+            activePopup.style.opacity = '1';
+            agreeIcon.classList.remove('bi-caret-down-fill');
+            agreeIcon.classList.add('bi-caret-up-fill');
+
+            return false;
+        }
+
+        return true;
+    }
+
+
+
+    //---------------------------------------------
+    // input 입력칸 자동으로 넘김
+    //---------------------------------------------
+
+    // 동 -> 호
+    if (dongInput) {
+        dongInput.addEventListener('input', function() {
+            handleInput(this, 4, hoInput);
+            handleNumericInput(this);
+        });
+    }
+
+    // 호 -> 이름
+    if (hoInput) {
+        hoInput.addEventListener('input', function() {
+            handleInput(this, 4, nameInput);
+            handleNumericInput(this);
+        });
+    }
+
+    // 숫자만 입력 가능
+    function handleInput(inputElement, maxLength, nextInputElement) {
+        if (inputElement.value.length >= maxLength && nextInputElement) {
+            nextInputElement.focus();
+        }
+    }
+
+    function handleNumericInput(inputElement) {
+        inputElement.value = inputElement.value.replace(/[^0-9]/g, "");
+    }
+
+
+    //---------------------------------------------
+    // 휴대폰 하이픈 자동 넣기
+    //---------------------------------------------
+    const telInput = document.getElementById('telInput');
+
+    if (telInput) {
+        if (telInput) {
+            telInput.addEventListener("input", function() {
+                let val = this.value.replace(/[^0-9]/g, "");
+                val = val.slice(0, 11);
+
+                let formattedVal = val.slice(0, 3);
+                if (val.length > 3) {
+                    formattedVal += "-" + val.slice(3, 7);
+                }
+                if (val.length > 7) {
+                    formattedVal += "-" + val.slice(7);
+                }
+
+                this.value = formattedVal;
+            });
+        }
+
+        // backspace로 지우기
+        telInput.addEventListener("keydown", function(event) {
+            if (event.key === "Backspace") {
+                const selectionStart = this.selectionStart;
+                const selectionEnd = this.selectionEnd;
+
+                if (selectionStart !== selectionEnd) { //드래그한 부분 지우기
+                    const value = this.value;
+                    this.value = value.slice(0, selectionStart) + value.slice(selectionEnd);
+                    this.selectionStart = this.selectionEnd = selectionStart;
+                } else {
+                    let val = this.value.replace(/[^0-9]/g, "");
+                    const newVal = val.slice(0, -1);
+                    
+                    if (newVal.length > 3) {
+                        const formattedVal = newVal.slice(0, 3) + "-" + newVal.slice(3, 7) + "-" + newVal.slice(7);
+                        this.value = formattedVal;
+                    } else {
+                        this.value = newVal;
+                    }
+                    
+                    this.selectionStart = this.selectionEnd = selectionStart - 1;
+                }
+
+                event.preventDefault();
+            }
+        });
+    }
+    </script>
+</body>
+</html>

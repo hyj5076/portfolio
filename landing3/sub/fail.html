@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사전예약 실패</title>
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti:wght@400;500;700&family=Kumar+One&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/sub.css">
+
+    <!-- js -->
+    <script src="../js/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="main">
+            <section id="fail">
+                <div class="style1 inner">
+                    <div class="title">
+                        <p class="logo"><a href="../index.html">EDEN C&S</a></p>
+
+                       <div class="result">
+                            <p>이미 예약된 정보입니다.</p>
+                            <p class="result_call">고객 문의 1522 - 4229</p>
+                       </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="../js/sub.js"></script>
+
+    <script>
+    //인풋 초기화 버튼
+    function resetForm() {
+        document.getElementById("dongInput").value = "";
+        document.getElementById("hoInput").value = "";
+        document.getElementById("nameInput").value = "";
+        document.getElementById("telInput").value = "";
+    }
+    </script>
+</body>
+</html>

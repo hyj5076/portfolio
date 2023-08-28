@@ -441,7 +441,8 @@ h2 {
     height: auto;
     margin: 80px;
     box-shadow: var(--box-shadow-300);
-    background-color: #fff9f6;
+    background-image: linear-gradient(25deg, #fff9f6, #fff9f6, #fff9f6, #fff9f6);
+    transition: background-image 0.4s ease-out;
 }
 
 .log-img a {
@@ -466,48 +467,23 @@ h2 {
 
 @keyframes gradientHover {
     0%, 100% {
-        background-image: linear-gradient(45deg, #adcea8, #bdc8ee, #fedba5, #fcc9d2);
         border-color: #139100 #0037ff #ff9900 #ff002f;
     }
-    12.5% {
-        background-image: linear-gradient(25deg, #adcea8, #adcea8, #bdc8ee, #fedba5);
-    }
     25% {
-        background-image: linear-gradient(35deg, #bdc8ee, #fedba5, #fcc9d2, #adcea8);
         border-color: #0037ff #ff9900 #ff002f #adcea8;
     }
-    37.5% {
-        background-image: linear-gradient(45deg, #bdc8ee, #bdc8ee, #fedba5, #fcc9d2);
-    }
     50% {
-        background-image: linear-gradient(45deg, #fedba5, #fcc9d2, #adcea8, #bdc8ee);
         border-color: #ff9900 #fcc9d2 #139100 #0037ff;
     }
-    62.5% {
-        background-image: linear-gradient(35deg, #fedba5, #fedba5, #fcc9d2, #adcea8);
-    }
     75% {
-        background-image: linear-gradient(25deg, #fcc9d2, #adcea8, #bdc8ee, #fedba5);
         border-color: #ff002f #139100 #0037ff #fedba5;
     }
-    87.5% {
-        background-image: linear-gradient(15deg, #fcc9d2, #fcc9d2, #adcea8, #bdc8ee);
-    }
 }
-
 
 .log-img:hover {
-    animation: gradientHover 1s linear infinite;
+    background-image: linear-gradient(25deg, #adcea8, #bdc8ee, #fedba5, #fcc9d2);
+    animation: gradientHover 1s linear 3;
 }
-
-
-
-
-/* .log-img:hover {
-    animation: rotateBorder 1s linear infinite;
-    animation: gradientHover 1s linear infinite;
-}
- */
 
 
 
