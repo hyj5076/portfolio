@@ -309,6 +309,7 @@ h2 {
 }
 
 .project_show {
+    position: relative;
     width: 70%;
     overflow: hidden;
     box-shadow: var(--box-shadow-200);
@@ -319,6 +320,38 @@ h2 {
     height: 100%;
     object-fit: cover;
 }
+
+.project_show .btn {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+}
+
+.project_show .btn a {
+    display: inline-block;
+    width: calc((100% - 60px)/2);
+    padding: 10px 0;
+    margin-left: 20px;
+    text-align: center;
+    color: #fff;
+    transition: all 0.2s ease-out;
+}
+
+    .project_show .btn a:hover {
+        border: #fff 1px solid;
+    }
+
+    .skyblue-btn a {
+        background: #0072c363;
+        border: #0072c363 1px solid;
+    }
+
+    .pink-btn a {
+        background: #77148a46;
+        border: #77148a46 1px solid;
+    }
 
 .project_spec {
     box-shadow: var(--box-shadow-200);
@@ -336,19 +369,27 @@ h2 {
     padding-bottom: 5px;
 }
 
+
+/* ---------------------------------------------
+    section02 : project 첫번째 프로젝트
+   --------------------------------------------- */
+
 #section02 .project_spec {
     background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-
 }
+
+/* ---------------------------------------------
+    section03 : project 두번째 프로젝트
+   --------------------------------------------- */
 
 #section03 .project_spec {
     background-image: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
 }
 
+
 /* ---------------------------------------------
     section04 : 다른 프로젝트
    --------------------------------------------- */
-
 
 .others ul {
     display: flex;
@@ -360,7 +401,7 @@ h2 {
     margin-right: 20px;
 }
 
-.others ul li > div {
+.others ul li > a {
     width: 200px;
     height: 140px;
     box-shadow: var(--box-shadow-200);
@@ -372,7 +413,8 @@ h2 {
 .others img {
     object-fit: cover;
 }
-   
+
+
 /* ---------------------------------------------
     section05 : 링크
    --------------------------------------------- */

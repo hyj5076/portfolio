@@ -35,7 +35,6 @@ function updateDotColors() {
     });
 }
 
-
 // 페이지 로드 시 pagination items 초기화
 document.addEventListener("DOMContentLoaded", () => {
     initializePaginationItems();
