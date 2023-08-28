@@ -2,10 +2,30 @@
 // 페이지 색깔 변경
 //---------------------------------------------
 
-const colors = ["black", "skyblue", "pink", "green", "yellow"];
+const colors = ["#555555", "#76abe0", "#fcc9d2", "#8bc183", "#fdd495"];
 
+// li와 아이콘 생성 해주기
+function createListItemWithIcon() {
+    const li = document.createElement('li');
+    const icon = document.createElement('i');
+    icon.className = "bi bi-circle-fill"; 
+    li.appendChild(icon);
+    return li;
+}
+
+function initializePaginationItems() {
+    const paginationContainer = document.querySelector("#pagination");
+    
+    colors.forEach(() => {
+        const newLi = createListItemWithIcon();
+        paginationContainer.appendChild(newLi);
+    });
+}
+
+// 만약 #pagenation에서 li i를 하드코딩해주었다면 이 부분만 필요함
 function updateDotColors() {
     const paginationItems = document.querySelectorAll("#pagination li");
+
     paginationItems.forEach((item, index) => {
         if (index === page) {
             item.querySelector('i').style.color = colors[index];
@@ -15,8 +35,40 @@ function updateDotColors() {
     });
 }
 
+
+// 페이지 로드 시 pagination items 초기화
+document.addEventListener("DOMContentLoaded", () => {
+    initializePaginationItems();
+    updateDotColors();
+    bindPaginationClicks();
+});
+
+
 //---------------------------------------------
-// PC형 페이징 스크롤
+// 페이징 버튼 누름
+//---------------------------------------------
+
+function bindPaginationClicks() {
+    const paginationItems = document.querySelectorAll("#pagination li");
+
+    paginationItems.forEach((item, index) => {
+        item.addEventListener("click", function() {
+            if (scrolling) return; // 스크롤 중인 경우 동작하지 않음
+
+            page = index; // 누른 버튼의 인덱스를 현재 페이지로 설정
+
+            let posTop = page * window.innerHeight; // 위치 계산
+            scrollToPosition(posTop);
+
+            // 페이지가 변경된 후 동그라미의 색깔 업데이트
+            updateDotColors();
+        });
+    });
+}
+
+
+//---------------------------------------------
+// PC형 페이징 스크롤: 마우스
 //---------------------------------------------
 
 const html = document.querySelector("html");
@@ -70,3 +122,55 @@ window.addEventListener("wheel", function(e) {
     // 페이지가 변경된 후 동그라미의 색깔 업데이트
     updateDotColors();
 }, { passive: false });
+
+
+//---------------------------------------------
+// PC형 페이징 스크롤: 키보드
+//---------------------------------------------
+
+window.addEventListener("keydown", function(e) {
+    // 방향키 위: "ArrowUp", 방향키 아래: "ArrowDown"
+    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+        e.preventDefault(); // 키보드의 기본 스크롤 효과를 막음
+
+        if (scrolling) return; // 스크롤 중인 경우 동작하지 않음
+
+        // 방향키 아래를 눌렀을 때
+        if (e.key === "ArrowDown") {
+            if (page === lastPage - 1) {
+                return;
+            }
+            page++;
+        }
+        // 방향키 위를 눌렀을 때
+        else if (e.key === "ArrowUp") {
+            if (page === 0) {
+                scrollToPosition(0);
+                return;
+            }
+            page--;
+        }
+
+        let posTop = page * window.innerHeight; // 위치 계산
+        scrollToPosition(posTop);
+
+        // 페이지가 변경된 후 동그라미의 색깔 업데이트
+        updateDotColors();
+    }
+});
+
+
+//---------------------------------------------
+// 화살표 사라짐
+//---------------------------------------------
+
+const scrollElement = document.querySelector('.scroll');
+
+window.addEventListener('scroll', () => {
+    // 페이지가 일정량 이상 스크롤 되었을 때 fade out 효과 적용
+    if (window.scrollY > 50) {  // 50px 이상 스크롤 되었을 때. 원하는 값을 설정하십시오.
+        scrollElement.classList.add('fade-out');
+    } else {
+        scrollElement.classList.remove('fade-out');
+    }
+});

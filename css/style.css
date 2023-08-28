@@ -415,6 +415,7 @@ h2 {
 }
 
 
+
 /* ==========================================================================
     5. Footer
    ==========================================================================
@@ -429,6 +430,29 @@ footer {
 
 .scroll {
     color: var(--color-black200);
+    text-align: center;
+    text-shadow: var(--box-shadow-100);
+}
+
+.scroll i {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+}
+
+@keyframes scrollMotion {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(20px); }
+    100% { transform: translateY(0); }
+}
+
+.bi-arrow-down {
+    display: inline-block;  /* 애니메이션 적용을 위해 block 또는 inline-block 요소로 설정 */
+    animation: scrollMotion 1.4s infinite;  /* 1.5초 동안 애니메이션을 무한 반복 */
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s; /* 0.5초 동안 투명도가 0으로 바뀌도록 설정. 원하는 대로 조절 가능 */
 }
 
 /* ==================================== 끝 ================================== */
